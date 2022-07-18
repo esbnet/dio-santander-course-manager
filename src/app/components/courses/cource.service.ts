@@ -1,14 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Course } from './course';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class CourseService {
   retriveAll(): Course[] {
     return COURSES;
   }
+
+  retrieveById(id: number): Course {
+    //@ts-ignore
+    return COURSES.find((courseIterator: Course) => courseIterator.id === id);
+  }
+
+  save(course: Course): void {
+    if (course.id) {
+      const index = COURSES.findIndex(
+        //@ts-ignore
+        (courseIterator: Course) => courseIterator === course.id
+      );
+      COURSES[index] = course;
+    }
+  }
 }
+
 var COURSES: Course[] = [
   {
     id: 1,

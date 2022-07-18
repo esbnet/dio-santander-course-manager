@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -19,6 +19,7 @@ import { StarComponent } from './components/star/star.component';
     StarComponent,
     ReplacePipe,
     AppNavbarComponent,
+    CourseInfoComponent
   ],
   imports: [
     BrowserModule,
