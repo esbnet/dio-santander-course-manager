@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { CourseInfoComponent } from './components/courses/course-info.component';
@@ -30,6 +31,7 @@ import { StarComponent } from './components/star/star.component';
       { path: '', redirectTo: 'courses', pathMatch: 'full' },
       { path: '**', component: Error404Component },
     ]),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

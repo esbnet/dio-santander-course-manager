@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { CourseService } from './cource.service';
 import { Course } from './course';
+import { CourseService } from './cource.service';
 
 @Component({ templateUrl: './course-info.component.html' })
 export class CourseInfoComponent implements OnInit {
@@ -15,14 +15,20 @@ export class CourseInfoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.couserServise
     //@ts-ignore
-    this.course = this.couserServise.retrieveById(
-      //@ts-ignore
-      +this.actvateRoute.snapshot.paramMap.get('id')
-    );
-  }
-
-  saveCourse(): void {
-    this.couserServise.save(this.course);
+      .retrieveById(+this.actvateRoute.snapshot.paramMap.get('id'))
+      .subscribe({
+        //@ts-ignore
+        next: (course) => (this.course = course),
+        error: (err) => console.log('Error', err),
+      });
+    }
+    
+    saveCourse(): void {
+      this.couserServise.save(this.course).subscribe({
+        next: course => console.log('Course saved successfully', course),//
+        error: (err) => console.log('Error', err),
+    });
   }
 }
