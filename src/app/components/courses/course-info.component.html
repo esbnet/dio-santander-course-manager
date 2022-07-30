@@ -1,4 +1,4 @@
-<h2>Course code: {{ course.code }}</h2>
+<h2>Course : </h2>
 <hr />
 
 <form #courseForm="ngForm" *ngIf="course">
@@ -74,7 +74,7 @@
   </div>
   <button
     [disabled]="courseForm.invalid"
-    click="saveCourse()"
+    (click)="saveCourse()"
     class="btn btn-primary"
   >
     Save

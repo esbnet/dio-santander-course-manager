@@ -19,7 +19,6 @@ export class CourseInfoComponent implements OnInit {
     //@ts-ignore
       .retrieveById(+this.actvateRoute.snapshot.paramMap.get('id'))
       .subscribe({
-        //@ts-ignore
         next: (course) => (this.course = course),
         error: (err) => console.log('Error', err),
       });
